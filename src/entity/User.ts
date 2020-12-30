@@ -1,21 +1,22 @@
-import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, PrimaryColumn} from "typeorm";
 
-@Entity({name:"users",schema:"user_mgmt", synchronize: false})
+@Entity({name:"users",synchronize: true})
 export class User {
 
     @PrimaryGeneratedColumn()
+    @PrimaryColumn()
     id: number;
 
-    @Column({name:"name"})
+    @Column("varchar",{name:"name"})
     firstName: string;
 
-    @Column({name:"last_name"})
+    @Column("varchar",{name:"last_name"})
     lastName: string;
 
-    @Column({name:"email"})
+    @Column("varchar",{name:"email"})
     email: string;
 
-    @Column({name:"honeywell_id"})
+    @Column("varchar",{name:"honeywell_id"})
     honeywellId: string
 
 }
